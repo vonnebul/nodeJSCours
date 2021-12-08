@@ -15,6 +15,7 @@ app.get('/', function(req, res) {
    
 app.post('/post.html', function(req, res) {
     var p1 = req.body.p1; 
+    console.log("p1=" + p1);
     if(p1 == "test"){
       fs.readFile('./victoire.html','utf-8',function(error, content){
         res.writeHead(200, {"Content-Type":"text/html"});
@@ -22,7 +23,9 @@ app.post('/post.html', function(req, res) {
       })
     }
     else{
-      res.writeHead(200, {"Content-Type":"text/html"});
-      res.sendFile( __dirname  + '/page.html');
+      fs.readFile('./page.html','utf-8',function(error, content){
+        res.writeHead(200, {"Content-Type":"text/html"});
+        res.end(content);
+      })
     }
 });
