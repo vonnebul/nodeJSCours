@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form action="server2.js" method="get">
+            <input type="text" name="info">
+            <input type="submit">
+        </form>
+        <input id="search">
+        <ul>
+            <li class="langage">javascript</li>
+            <li class="langage">C#</li>
+            <li class="langage">Java</li>
+            <li class="langage">PHP</li>
+            <li class="langage">HTML</li>
+        </ul>
+        <script>
+            document.getElementById("search").addEventListener("keyup",(e)=>{
+                // récup valeur de l'input
+                let langage = e.target.value.toLowerCase();
+                // récupérer les valeurs li
+                let collectionLangage = document.getElementsByClassName("langage");
+                for(let i = 0; i< collectionLangage.length; i++){
+                    let MotLangage = collectionLangage[i].textContent.toLowerCase()
+                    // comparer mon langage avec motlangage
+                    if(MotLangage.includes(langage)){
+                        collectionLangage[i].style.display="block";
+                    }
+                    else{
+                        collectionLangage[i].style.display="none";
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
