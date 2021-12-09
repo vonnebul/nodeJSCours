@@ -8,6 +8,14 @@
         <script src="/socket.io/socket.io.js"></script>
         <script>
             var socket = io.connect('http://localhost:3000');
+            socket.on("question", function(question){
+                var rep = confirm(question);
+                socket.emit("rep", rep)
+            });
+
+            socket.on("newClient", function(rep){
+                alert("nouveau client arrivé !")
+            })
         </script>
     </body>
 </html>

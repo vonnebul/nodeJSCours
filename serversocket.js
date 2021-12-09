@@ -12,8 +12,22 @@ var server = http.createServer(function(req,res){
 var io = require("socket.io")(server);
 
 // notation utilisateur sur la console
-io.sockets.on('connection', (socket)=>{
-    console.log('un client est connecté');
-})
+io.sockets.on( 'connection' , function (socket) {
+    console.log( 'Un client est connecté !' );
+    socket.broadcast.emit("newClient");
+
+    var rep = false;
+
+    socket.on("rep", function(res){
+        console.log("La réponse de l'utilisateur est : " + res);
+        rep = res;
+    })
+
+    console.log("la variable réponse est désormais = "+ rep)
+
+    setInterval(() => {
+        socket.emit( "question" , "test ?" );
+    }, 20000 );
+});
 
 server.listen(3000);

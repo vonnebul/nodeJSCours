@@ -1,0 +1,22 @@
+[
+    {
+        "id" : 1,
+        "auteur": "eiichiro oda",
+        "nom" : "One piece" 
+    },
+    {
+        "id" : 2,
+        "auteur": "eiichiro oda",
+        "nom" : "Les misérables" 
+    },
+    {
+        "id" : 3,
+        "auteur": "eiichiro oda",
+        "nom" : "L'étranger" 
+    },
+    {
+        "id" : 4,
+        "auteur": "eiichiro oda",
+        "nom" : "Spider-man" 
+    }
+]
